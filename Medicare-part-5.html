@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Medicare Eligibility Form</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #e3f2fd;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      padding: 20px;
+    }
+
+    .form-container {
+      background-color: #ffffff;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 550px;
+      text-align: left;
+      font-size: 16px;
+    }
+
+    h2 {
+      font-size: 24px;
+      font-weight: bold;
+      color: #2a3d4d;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    p {
+      font-size: 16px;
+      color: #555;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 8px;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+      outline: none;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: 0.3s;
+    }
+
+    input:focus, select:focus {
+      border-color: #4CAF50;
+      box-shadow: 0 0 6px rgba(72, 199, 90, 0.5);
+    }
+
+    .checkbox-container {
+      font-size: 14px;
+      color: #666;
+    }
+
+    .checkbox-container input {
+      width: auto;
+      margin-right: 10px;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    button {
+      padding: 12px 25px;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+      width: 48%;
+    }
+
+    .get-matched-btn {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+    }
+
+    .get-matched-btn:hover {
+      background-color: #45a049;
+    }
+
+    .skip-btn {
+      background-color: #f1f1f1;
+      color: #333;
+      border: 1px solid #ccc;
+    }
+
+    .skip-btn:hover {
+      background-color: #ddd;
+    }
+
+    .footer-text {
+      margin-top: 25px;
+      font-size: 12px;
+      color: #777;
+      text-align: center;
+    }
+
+    .footer-text p {
+      margin-bottom: 0;
+    }
+  </style>
+  <script>
+    function redirectToPage() {
+      // Redirects to the Medicare-part-5.html page
+      window.location.href = 'make-a-call.html';
+    }
+
+    function validateForm(event) {
+      var phone = document.getElementById("phone").value;
+      var provider = document.getElementById("provider").value;
+
+      if (phone === "" || provider === "") {
+        alert("Please fill out all required fields.");
+        event.preventDefault();  // Prevent form submission
+      }
+    }
+  </script>
+</head>
+<body>
+
+  <div class="form-container">
+    <form onsubmit="validateForm(event)">
+      <h2>Yes, you may be eligible for a Medicare Advantage Plan with additional benefits!</h2>
+      <p>Complete your applicant info to get your free, no-obligation results:</p>
+
+      <!-- Email Field (Optional) -->
+      <div class="form-group">
+        <label for="email">Email (Optional)</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email">
+      </div>
+
+      <!-- Phone Field (Required) -->
+      <div class="form-group">
+        <label for="phone">Phone (Required)</label>
+        <input type="text" id="phone" name="phone" placeholder="Enter your phone number" required>
+      </div>
+
+      <!-- Checkbox -->
+      <div class="checkbox-container">
+        <label>
+          <input type="checkbox" required>
+          By checking the box, you consent to be contacted by the selected company or its authorized representatives.
+        </label>
+      </div>
+
+      <!-- Select Provider Field (Required) -->
+      <div class="form-group">
+        <label for="provider">Select a Provider (Required)</label>
+        <select id="provider" name="provider" required>
+          <option value="">Select a provider</option>
+          <option value="Amerilife">Amerilife</option>
+          <option value="Assurance IQ Medicare">Assurance IQ Medicare</option>
+          <option value="Carida Insurance">Carida Insurance</option>
+          <option value="Clearlink">Clearlink</option>
+          <option value="Consumer Concierge">Consumer Concierge</option>
+          <option value="Connect One Health">Connect One Health</option>
+          <option value="Datalot">Datalot</option>
+          <option value="EHealth">EHealth</option>
+          <option value="Enhance">Enhance</option>
+          <option value="Family First Insurance">Family First Insurance</option>
+          <option value="GetMeHealthcare">GetMeHealthcare</option>
+          <option value="ClearMatch Medicare">ClearMatch Medicare</option>
+          <option value="IHealth Plans">IHealth Plans</option>
+          <option value="Kauffmal Insurance Group">Kauffmal Insurance Group</option>
+          <option value="Morgan Fidelity">Morgan Fidelity</option>
+          <option value="My Medicare Match">My Medicare Match</option>
+          <option value="One Digital">One Digital</option>
+          <option value="Plan B Group">Plan B Group</option>
+          <option value="PX">PX</option>
+          <option value="SelectQuote">SelectQuote</option>
+          <option value="Spring Venture Group">Spring Venture Group</option>
+          <option value="Thomas Art">Thomas Art</option>
+          <option value="Unlimited Investors Group">Unlimited Investors Group</option>
+          <option value="Your Way Medicare">Your Way Medicare</option>
+        </select>
+      </div>
+
+      <div class="buttons">
+        <!-- Get Matched Button: Redirect to make-a-call.html -->
+        <button type="button" class="get-matched-btn" onclick="redirectToPage()">Get Matched</button>
+        <!-- Skip Button: Redirect to make-a-call.html -->
+        <button type="button" class="skip-btn" onclick="redirectToPage()">Skip</button>
+      </div>
+
+      <div class="footer-text">
+        <p>By clicking the 'Get Matched' button above, I provide express written consent for the selected agencies to contact me by telephone, which may include text messages or calls, delivered via automated dialer and/or artificial/pre-recorded voice. For more details, please see the terms and privacy policies.</p>
+      </div>
+    </form>
+  </div>
+
+</body>
+</html>

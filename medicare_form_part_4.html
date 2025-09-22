@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Name Input</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f8fb;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .card {
+      background-color: #ffffff;
+      width: 100%;
+      max-width: 500px;
+      padding: 30px;
+      border-radius: 14px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+      text-align: center;
+    }
+
+    .card h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    .card p {
+      font-size: 14px;
+      color: #888;
+      margin-bottom: 20px;
+    }
+
+    .progress-bar {
+      height: 9px;
+      background-color: #e0e0e0;
+      border-radius: 4px;
+      overflow: hidden;
+      margin-bottom: 30px;
+    }
+
+    .progress {
+      height: 100%;
+      width: 20%; /* Simulate 10 seconds progress */
+      background-color: #2196f3;
+      transition: width 0.5s ease-in-out;
+    }
+
+    .form-group {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 25px;
+    }
+
+    .form-group input {
+      width: 100%;
+      height: 60px;
+      padding: 12px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 2px;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .btn {
+      flex: 1;
+      padding: 12px;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 8px;
+    }
+
+    .btn-continue {
+      background-color: #2196f3;
+      color: #fff;
+    }
+
+    .btn-skip {
+      background-color: #e3ce10;
+      color: #1b1f01;
+    }
+
+    .btn:hover {
+      opacity: 0.9;
+    }
+
+    @media (max-width: 500px) {
+      .form-group {
+        flex-direction: column;
+      }
+
+      .buttons {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h2>Please tell us your name.</h2>
+    <p>Approximately 10 Seconds Left</p>
+    
+    <div class="progress-bar">
+      <div class="progress"></div>
+    </div>
+
+    <!-- <div class="form-group">
+      <input type="text" placeholder="Enter your First Name" name="firstName">
+      <input type="text" placeholder="Enter your Last Name" name="lastName">
+    </div>
+
+    <div class="buttons">
+      <button class="btn btn-continue">Continue</button>
+      <button href="medicare_form_part_5.html" class="btn btn-skip">Skip</button>
+    </div> -->
+
+
+    <input type="text" id="name" placeholder="Enter First Name" required>
+    <input type="text" id="name" placeholder="Enter Last Name" required>
+    <br><br>
+    <button class="btn" onclick="continuePage()">Continue</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <button class="skip" onclick="skipPage()">Skip</button>
+
+    <script>
+    function continuePage() {
+      let zip = document.getElementById("name").value;
+      if(zip.trim() === "") {
+        alert("Please enter your Name before continuing.");
+      } else {
+        window.location.href = "medicare_form_part_5.html";
+      }
+    }
+
+    function skipPage() {
+      window.location.href = "medicare_form_part_5.html";
+    }
+  </script>
+  </div>
+
+
+
+  
+</body>
+</html>

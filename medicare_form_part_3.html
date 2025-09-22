@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zip Code Entry</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: #f0f6ff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+      /* width: 380px; */
+       width: 600px;
+      height: 304px;
+      padding: 25px 20px;
+      text-align: center;
+    }
+
+    .progress-text {
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 8px;
+    }
+
+    .progress-text span {
+      color: #1e73be;
+      font-weight: bold;
+    }
+
+    .progress-bar {
+      width: 100%;
+      background-color: #e4e9f0;
+      height: 8px;
+      border-radius: 6px;
+      margin-bottom: 20px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      width: 25%;
+      height: 100%;
+      background-color: #1e73be;
+      transition: width 0.4s ease;
+    }
+
+    h2 {
+      font-size: 18px;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 12px 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+      margin-bottom: 20px;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    input[type="text"]:focus {
+      border-color: #1e73be;
+      box-shadow: 0 0 5px rgba(30, 115, 190, 0.3);
+      outline: none;
+    }
+
+    .btn {
+      display: block;
+      width: 100%;
+      background-color: #1e73be;
+      color: #fff;
+      border: none;
+      padding: 12px 0;
+      border-radius: 25px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .btn:hover {
+      background-color: #155a8a;
+      transform: translateY(-2px);
+    }
+
+    .skip {
+      display: inline-block;
+      margin-top: 12px;
+      font-size: 14px;
+      color: #1e73be;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .skip:hover {
+      color: #155a8a;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <p class="progress-text">Approximately <span>20 Seconds Left</span></p>
+    <div class="progress-bar">
+      <div class="progress-fill"></div>
+    </div>
+
+    <h2>What is your zip code?</h2>
+    <p>Medicare plans vary by county - this lets us know what's available for you.</p>
+
+    <!-- <input type="text" placeholder="Enter Zip Code" />
+    <button class="btn">Continue</button> -->
+    <input type="text" id="zipcode" placeholder="Enter Zip Code" required>
+    <button class="btn" onclick="continuePage()">Continue</button>
+    <button class="skip" onclick="skipPage()">Skip</button>
+    <!-- <a href="medicare_form_part_4.html" class="skip">Skip</a> -->
+  </div>
+<script>
+    function continuePage() {
+      let zip = document.getElementById("zipcode").value;
+      if(zip.trim() === "") {
+        alert("Please enter your Zip Code before continuing.");
+      } else {
+        window.location.href = "medicare_form_part_4.html";
+      }
+    }
+
+    function skipPage() {
+      window.location.href = "medicare_form_part_4.html";
+    }
+  </script>
+
+</body>
+</html>

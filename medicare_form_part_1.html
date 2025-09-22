@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Medicare Enrollment</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: #f0f6ff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+      width: 600px;
+      height: 370px;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .card-header {
+      background-color: #1e73be;
+      color: #ffffff;
+      padding: 15px 10px;
+      font-size: 14px;
+      font-weight: bold;
+      position: relative;
+    }
+
+    .card-header::after {
+      content: "";
+      position: absolute;
+      bottom: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 16px;
+      height: 16px;
+      background-color: #1e73be;
+      transform: translateX(-50%) rotate(45deg);
+    }
+
+    .card-body {
+      padding: 20px;
+    }
+
+    .card-body h2 {
+      font-size: 16px;
+      color: #333;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    .btn {
+      display: block;
+      width: 100%;
+      background-color: #1e73be;
+      color: #ffffff;
+      border: none;
+      padding: 12px 0;
+      margin: 10px 0;
+      border-radius: 25px;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .btn:hover {
+      background-color: #155a8a;
+      transform: translateY(-2px);
+    }
+
+    .skip {
+      display: inline-block;
+      margin-top: 10px;
+      font-size: 14px;
+      color: #1e73be;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .skip:hover {
+      color: #155a8a;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="card-header">
+      Speak with a licensed sales agent today to review your coverage options!
+    </div>
+    <form id="medicareForm">
+    <div class="card-body">
+      <h2>Are you currently enrolled in Medicare parts A and B?</h2>
+      <button type="submit" name="answer" value="A Only" class="btn">A Only</button>
+      <button type="submit" name="answer" value="B Only" class="btn">B Only</button>
+      <button type="submit" name="answer" value="Both" class="btn">Both</button>
+      <button type="submit" name="answer" value="Neither" class="btn">Neither</button>
+      
+      <a href="medicare_form_part_2.html" class="skip">Skip</a>
+    </div>
+    </form>
+
+    <script>
+    const form=document.getElementById('medicareForm');
+
+    form.addEventListener('submit', e=>{
+      e.preventDefault();
+      // Redirect all answers to the same page
+      window.location.href = 'medicare_form_part_2.html';
+    });
+
+    document.querySelector('.skip').addEventListener('click', ()=>{
+      window.location.href = 'medicare_form_part_2.html';
+    });
+  </script>
+  </div>
+</body>
+</html>

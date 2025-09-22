@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Medicare Eligibility</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: #f0f6ff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+      /* width: 360px; */
+       width: 600px;
+      height: 305px;
+      padding: 25px 20px;
+      text-align: center;
+    }
+
+    .progress-text {
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 5px;
+    }
+
+    .progress-text span {
+      color: #1e73be;
+      font-weight: bold;
+    }
+
+    .progress-bar {
+      background-color: #e4e9f0;
+      border-radius: 8px;
+      height: 10px;
+      width: 100%;
+      margin-bottom: 20px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      background-color: #1e73be;
+      width: 30%;
+      height: 100%;
+      border-radius: 8px;
+      transition: width 0.4s ease;
+    }
+
+    h2 {
+      font-size: 16px;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 20px;
+      line-height: 1.4;
+    }
+
+    .btn {
+      display: block;
+      width: 100%;
+      background-color: #1e73be;
+      color: #fff;
+      border: none;
+      padding: 12px 0;
+      margin: 10px 0;
+      border-radius: 25px;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .btn:hover {
+      background-color: #155a8a;
+      transform: translateY(-2px);
+    }
+
+    .skip {
+      display: inline-block;
+      margin-top: 10px;
+      font-size: 14px;
+      color: #1e73be;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .skip:hover {
+      color: #155a8a;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <p class="progress-text">
+      Approximately <span>30 Seconds Left</span>
+    </p>
+    <div class="progress-bar">
+      <div class="progress-fill"></div>
+    </div>
+
+    <h2>Are you at least 65 or otherwise eligible for Medicare (optional)</h2>
+
+<form id="eligibilityForm">
+    <button type="submit" name="answer" value="Yes" class="btn">Yes</button>
+    <button type="submit" name="answer" value="No"class="btn">No</button>
+    <a href="medicare_form_part_3.html" class="skip">Skip</a>
+  </div>
+  </form>
+
+  <script>
+    const form=document.getElementById('eligibilityForm');
+
+    form.addEventListener('submit', e=>{
+      e.preventDefault();
+      const choice=e.submitter.value;
+      // Redirect based on answer
+      if(choice === 'Yes'){
+        window.location.href = 'medicare_form_part_3.html';
+      } else if(choice === 'No'){
+        window.location.href = 'medicare_form_part_3.html';
+      }
+    });
+
+    document.querySelector('.skip').addEventListener('click', ()=>{
+      // Redirect for skip
+      window.location.href = 'medicare_form_part_3.html';
+    });
+  </script>
+</body>
+</html>

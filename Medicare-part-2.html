@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Medicare Eligibility</title>
+  <style>
+    body{
+      font-family: Arial, sans-serif;
+      background:#fff;
+      margin:0;
+      padding:0;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      min-height:100vh;
+      color:#222;
+    }
+    .container{
+      max-width:500px;
+      width:100%;
+      text-align:center;
+      padding:20px;
+    }
+    .progress-text{
+      font-size:14px;
+      font-weight:bold;
+      margin-bottom:6px;
+      color:#374151;
+    }
+    .progress-text span{
+      color:#2563eb;
+    }
+    .progress-bar{
+      background:#e5e7eb;
+      height:12px;
+      border-radius:999px;
+      overflow:hidden;
+      margin-bottom:20px;
+    }
+    .progress-fill{
+      background:#374151;
+      width:25%; /* adjust percentage */
+      height:100%;
+    }
+    h2{
+      font-size:20px;
+      font-weight:700;
+      margin-bottom:24px;
+    }
+    .btn{
+      display:block;
+      width:100%;
+      padding:14px;
+      margin:10px 0;
+      font-size:16px;
+      font-weight:600;
+      border:none;
+      border-radius:999px;
+      cursor:pointer;
+      background:#6b8b8e;
+      color:#fff;
+      transition:background .2s;
+    }
+    .btn:hover{background:#587476;}
+    .skip{
+      margin-top:10px;
+      font-size:15px;
+      color:#111;
+      text-decoration:underline;
+      background:none;
+      border:none;
+      cursor:pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="progress-text">Approximately <span>30 Seconds Left</span></div>
+    <div class="progress-bar">
+      <div class="progress-fill"></div>
+    </div>
+
+    <h2>Are you at least 65 or otherwise eligible for Medicare (optional)</h2>
+
+    <form id="eligibilityForm">
+      <button type="submit" name="answer" value="Yes" class="btn">Yes</button>
+      <button type="submit" name="answer" value="No" class="btn">No</button>
+      <button type="button" class="skip" data-value="Skip">Skip</button>
+    </form>
+  </div>
+
+  <script>
+    const form=document.getElementById('eligibilityForm');
+
+    form.addEventListener('submit', e=>{
+      e.preventDefault();
+      const choice=e.submitter.value;
+      // Redirect based on answer
+      if(choice === 'Yes'){
+        window.location.href = 'Medicare-part-3.html';
+      } else if(choice === 'No'){
+        window.location.href = 'Medicare-part-3.html';
+      }
+    });
+
+    document.querySelector('.skip').addEventListener('click', ()=>{
+      // Redirect for skip
+      window.location.href = 'Medicare-part-3.html';
+    });
+  </script>
+</body>
+</html>

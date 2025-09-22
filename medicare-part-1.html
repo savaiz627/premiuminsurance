@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Medicare Quote Step 1</title>
+  <style>
+    body{
+      font-family: Arial, sans-serif;
+      margin:0;
+      padding:0;
+      background:url('https://via.placeholder.com/1200x800') no-repeat center center/cover;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      min-height:100vh;
+    }
+    .form-box{
+      background:#fff;
+      border-radius:12px;
+      max-width:400px;
+      width:100%;
+      text-align:center;
+      box-shadow:0 8px 24px rgba(0,0,0,0.2);
+      overflow:hidden;
+    }
+    .header{
+      background:#374151;
+      color:#fff;
+      padding:14px;
+      font-weight:bold;
+      font-size:15px;
+      position:relative;
+    }
+    .header::after{
+      content:'';
+      position:absolute;
+      bottom:-10px;
+      left:50%;
+      transform:translateX(-50%);
+      width:0;
+      height:0;
+      border-left:10px solid transparent;
+      border-right:10px solid transparent;
+      border-top:10px solid #374151;
+    }
+    h2{
+      font-size:18px;
+      font-weight:700;
+      padding:20px 16px 10px;
+      margin:0;
+    }
+    .btn{
+      display:block;
+      width:80%;
+      margin:10px auto;
+      padding:12px;
+      font-size:16px;
+      font-weight:600;
+      border:none;
+      border-radius:999px;
+      background:#6b8b8e;
+      color:#fff;
+      cursor:pointer;
+      transition:background .2s;
+    }
+    .btn:hover{background:#587476;}
+    .skip{
+      margin:15px 0 20px;
+      font-size:15px;
+      color:#111;
+      text-decoration:underline;
+      background:none;
+      border:none;
+      cursor:pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-box">
+    <div class="header">
+      Speak with a licensed sales agent today to review your coverage options!
+    </div>
+    <h2>Are you currently enrolled in Medicare parts A and B?</h2>
+
+    <form id="medicareForm">
+      <button type="submit" name="answer" value="A Only" class="btn">A Only</button>
+      <button type="submit" name="answer" value="B Only" class="btn">B Only</button>
+      <button type="submit" name="answer" value="Both" class="btn">Both</button>
+      <button type="submit" name="answer" value="Neither" class="btn">Neither</button>
+      <button type="button" class="skip" data-value="Skip">Skip</button>
+    </form>
+  </div>
+
+  <script>
+    const form=document.getElementById('medicareForm');
+
+    form.addEventListener('submit', e=>{
+      e.preventDefault();
+      // Redirect all answers to the same page
+      window.location.href = 'Medicare-part-2.html';
+    });
+
+    document.querySelector('.skip').addEventListener('click', ()=>{
+      window.location.href = 'Medicare-part-2.html';
+    });
+  </script>
+</body>
+</html>
